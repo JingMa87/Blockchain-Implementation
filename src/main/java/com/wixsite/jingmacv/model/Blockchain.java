@@ -10,24 +10,24 @@ import lombok.Getter;
 
 /**
  * A network of blocks representing a public ledger, to which users can add transaction information in a secure manner.
- * The genesis block is the first block in the blockchain.
+ * The proof of work is built in using the mining principle, which forces users to find a hash below a certain difficulty.
  */
 @Getter
 @EqualsAndHashCode
 public class Blockchain {
 	
 	private final List<Block> blocks = new ArrayList<>();
+	private final int difficulty = 4;
 	
 	public Blockchain() {
+		// The genesis block is the first block in the blockchain.
 		Block genesisBlock = new Block(0, Collections.emptyList(), new Date());
-		genesisBlock.setHash(genesisBlock.calculateHash());
-		blocks.add(genesisBlock);
+		blocks.add(genesisBlock.mine(difficulty));
 	}
 	
 	public boolean add(Block block) {
 		block.setPreviousHash(getLatestBlock().getHash());
-		block.setHash(block.calculateHash());
-		return blocks.add(block);
+		return blocks.add(block.mine(difficulty));
 	}
 	
 	public Block getLatestBlock() {

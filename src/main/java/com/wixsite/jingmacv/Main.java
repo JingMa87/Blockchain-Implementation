@@ -21,6 +21,7 @@ public class Main {
 		Blockchain blockchain = new Blockchain();
 		blockchain.add(firstBlock());
 		blockchain.add(secondBlock());
+		System.out.println(blockchain + "\r\n");
 		System.out.println("Is valid: " + blockchain.isValid());
 		// By changing the transferred amount, the calculated hash of the block will be different. This will cause the blockchain to be invalid.
 		Block firstBlock = blockchain.getBlocks().get(1);
