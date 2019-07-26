@@ -21,15 +21,13 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Block {
 
-	private final Long index;
 	private final List<Transaction> transactions;
 	private final Date timestamp;
 	private String previousHash;
 	private long nonce = 0; // An arbitrary number to ensure the hash keeps changing.
 	private String hash;
 	
-	public Block(long index, List<Transaction> transactions, Date timestamp) {
-		this.index = index;
+	public Block(List<Transaction> transactions, Date timestamp) {
 		this.transactions = transactions;
 		this.timestamp = timestamp;
 		this.previousHash = "0";
@@ -51,7 +49,7 @@ public class Block {
 	}
 
 	public String calculateHash() {
-		return DigestUtils.sha256Hex(index.hashCode() + transactions.hashCode() + timestamp.hashCode() + previousHash + nonce);
+		return DigestUtils.sha256Hex(transactions.hashCode() + timestamp.hashCode() + previousHash + nonce);
 	}
 
 }

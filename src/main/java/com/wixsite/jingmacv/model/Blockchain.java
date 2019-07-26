@@ -21,7 +21,7 @@ public class Blockchain {
 	
 	public Blockchain() {
 		// The genesis block is the first block in the blockchain.
-		Block genesisBlock = new Block(0, Collections.emptyList(), new Date());
+		Block genesisBlock = new Block(Collections.emptyList(), new Date());
 		blocks.add(genesisBlock.mine(difficulty));
 	}
 	

@@ -38,7 +38,7 @@ public class Main {
 		Transaction transaction1 = new Transaction(andrew, bernie, new BigDecimal(6.20));
 		Transaction transaction2 = new Transaction(bernie, andrew, new BigDecimal(13.98));
 		List<Transaction> transactions = Arrays.asList(transaction1, transaction2);
-		return new Block(1, transactions, new Date());
+		return new Block(transactions, new Date());
 	}
 	
 	private static Block secondBlock() {
@@ -47,7 +47,7 @@ public class Main {
 		Transaction transaction1 = new Transaction(andrew, donald, new BigDecimal(2));
 		Transaction transaction2 = new Transaction(donald, andrew, new BigDecimal(128.35));
 		List<Transaction> transactions = Arrays.asList(transaction1, transaction2);
-		return new Block(2, transactions, new Date());
+		return new Block(transactions, new Date());
 	}
 	
 }
