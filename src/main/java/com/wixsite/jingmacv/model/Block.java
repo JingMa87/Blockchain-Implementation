@@ -12,7 +12,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * A list of transactions with accompanying hashes. If the transactions in a block are tampered with, it's hash will also change and the next block will have a different previous hash.
+ * A list of transactions with accompanying hashes. If the transactions in a block are tampered with,
+ * its hash will also change and the next block will have a different previous hash.
  * This system of linked hashes ensures the security of the blockchain.
  */
 @Getter
